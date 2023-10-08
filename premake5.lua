@@ -25,13 +25,16 @@ project "MSDF-ATLAS-GEN"
 
 	defines {
 
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"MSDF_ATLAS_NO_ARTERY_FONT"
 	}
 
 	links {
 
 		"MSDFGEN"
 	}
+
+	disablewarnings "4267"
 
 	filter "system:windows"
 		systemversion "latest"
