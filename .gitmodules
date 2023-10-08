@@ -1,0 +1,3 @@
+[submodule "MSDFGEN"]
+	path = MSDFGEN
+	url = https://github.com/AlessandroDellaFrattina/MSDFGEN
