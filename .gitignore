@@ -24,3 +24,45 @@ output.png
 CMakeUserPresets.json
 out/
 /cmake-gen.bat
+
+# Binaries Folders
+**/bin/
+**/bin-int/
+
+# Windows files
+**.bat
+!Windows-GenProjects.bat
+
+# Visual Studio files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+
+# Linux files
+**.sh
+!Linux-GenProjects
+
+# Codelite files
+Makefile
+.build-debug/
+.build-release/
+.build-dist/
+.codelite/
+**.workspace
+**.mk
+**.project
+**.txt
+
+# MacOSX Files
+**.command
+**.sh
+
+# Xcode Files
+**.xcworkspace
+**.xcworkspacedata
+**.xcodeproj
+**.pbxproj
+**.DS_Store
+
