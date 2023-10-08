@@ -5,6 +5,8 @@
 #include <set>
 #include "types.h"
 
+#define MSDF_ATLAS_PUBLIC
+
 namespace msdf_atlas {
 
 /// Represents a set of Unicode codepoints (characters)
