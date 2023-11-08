@@ -9,13 +9,6 @@ project "MSDF-ATLAS-GEN"
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files {
-
-		"msdf-atlas-gen/**.h",
-		"msdf-atlas-gen/**.hpp",
-		"msdf-atlas-gen/**.cpp"
-	}
-
 	includedirs {
 
 		"msdf-atlas-gen",
@@ -23,22 +16,39 @@ project "MSDF-ATLAS-GEN"
 		"MSDFGEN/include"
 	}
 
-	defines {
-
-		"_CRT_SECURE_NO_WARNINGS",
-		"MSDF_ATLAS_NO_ARTERY_FONT",
-		"MSDF_ATLAS_PUBLIC="
-	}
-
 	links {
 
 		"MSDFGEN"
 	}
 
+	files {
+
+		"msdf-atlas-gen/**.h",
+		"msdf-atlas-gen/**.hpp",
+		"msdf-atlas-gen/**.cpp"
+	}
+
 	disablewarnings "4267"
 
-	filter "system:windows"
+	filter "system:windows"	
 		systemversion "latest"
+		defines "_CRT_SECURE_NO_WARNINGS"
+
+	filter "system:macosx"
+
+		sysincludedirs {
+
+			"msdf-atlas-gen",
+			"MSDFGEN",
+			"MSDFGEN/include"
+		}
+
+		externalincludedirs {
+
+			"msdf-atlas-gen",
+			"MSDFGEN",
+			"MSDFGEN/include"
+		}
 
 	filter "configurations:Debug"
 		defines "VE_DEBUG"
