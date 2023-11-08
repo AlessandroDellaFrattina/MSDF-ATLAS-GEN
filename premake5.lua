@@ -21,6 +21,12 @@ project "MSDF-ATLAS-GEN"
 		"MSDFGEN"
 	}
 
+	defines {
+
+		"MSDF_ATLAS_NO_ARTERY_FONT",
+		"MSDF_ATLAS_PUBLIC="
+	}
+
 	files {
 
 		"msdf-atlas-gen/**.h",
