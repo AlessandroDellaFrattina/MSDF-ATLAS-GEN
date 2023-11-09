@@ -40,13 +40,6 @@ project "MSDF-ATLAS-GEN"
 
 	filter "system:macosx"
 
-		sysincludedirs {
-
-			"msdf-atlas-gen",
-			"MSDFGEN",
-			"MSDFGEN/include"
-		}
-
 		externalincludedirs {
 
 			"msdf-atlas-gen",
