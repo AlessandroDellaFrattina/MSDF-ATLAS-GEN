@@ -5,7 +5,6 @@ project "MSDF-ATLAS-GEN"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "On"
-
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -34,11 +33,10 @@ project "MSDF-ATLAS-GEN"
 		"msdf-atlas-gen/**.cpp"
 	}
 
-	disablewarnings "4267"
-
 	filter "system:windows"	
 		systemversion "latest"
 		defines "_CRT_SECURE_NO_WARNINGS"
+		disablewarnings "4267"
 
 	filter "system:macosx"
 
