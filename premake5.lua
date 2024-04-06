@@ -4,9 +4,15 @@ project "MSDF-ATLAS-GEN"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "Off"
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/lib")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/lib")
+	staticruntime (sruntime)
+	targetdir (bin)
+	objdir (binint)
+
+	defines {
+
+		"MSDF_ATLAS_NO_ARTERY_FONT",
+		"MSDF_ATLAS_PUBLIC="
+	}
 
 	includedirs {
 
@@ -20,12 +26,6 @@ project "MSDF-ATLAS-GEN"
 		"MSDFGEN"
 	}
 
-	defines {
-
-		"MSDF_ATLAS_NO_ARTERY_FONT",
-		"MSDF_ATLAS_PUBLIC="
-	}
-
 	files {
 
 		"msdf-atlas-gen/**.h",
@@ -33,7 +33,7 @@ project "MSDF-ATLAS-GEN"
 		"msdf-atlas-gen/**.cpp"
 	}
 
-	filter "system:windows"	
+	filter "system:windows"
 		systemversion "latest"
 		defines "_CRT_SECURE_NO_WARNINGS"
 		disablewarnings "4267"
@@ -48,17 +48,16 @@ project "MSDF-ATLAS-GEN"
 		}
 
 	filter "configurations:Debug"
-		defines "VE_DEBUG"
-		runtime "Debug"
-		symbols "On"
+		runtime (debugruntime)
+		symbols (debugsymbols)
+		optimize (debugoptimize)
 
 	filter "configurations:Release"
-		defines "VE_RELEASE"
-		runtime "Release"
-		symbols "On"
-		optimize "On"
+		runtime (releaseruntime)
+		symbols (releasesymbols)
+		optimize (releaseoptimize)
 
 	filter "configurations:Dist"
-		defines "VE_DIST"
-		runtime "Release"
-		optimize "On"
+		runtime (distruntime)
+		symbols (distsymbols)
+		optimize (distoptimize)
